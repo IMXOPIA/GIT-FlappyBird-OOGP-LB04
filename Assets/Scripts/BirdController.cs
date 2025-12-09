@@ -30,10 +30,10 @@ public class BirdController : MonoBehaviour
     }
     void Update()
     {
-        //if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    Flap();    
-        //}    
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        {
+            Flap();    
+        }    
         if (transform.position.y < _yBounds)
         {
             Die();
