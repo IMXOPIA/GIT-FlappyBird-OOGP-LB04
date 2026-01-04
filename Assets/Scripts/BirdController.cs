@@ -19,6 +19,7 @@ public class BirdController : MonoBehaviour
         {
             _rb2d.velocity = Vector2.zero;
             _rb2d.velocity = Vector2.up * _flapForce;
+            Debug.Log("Flap!");
         }
     }
 
@@ -27,12 +28,14 @@ public class BirdController : MonoBehaviour
         if (!_isAlive) return;
             _isAlive = false;
             Debug.Log("You've Died!");
+        GameManager.Instance.GameOver();
     }
     void Update()
     {
+        if (!GameManager.Instance.IsGameStarted()) return;
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
-            Flap();    
+            Flap();
         }    
         if (transform.position.y < _yBounds)
         {
